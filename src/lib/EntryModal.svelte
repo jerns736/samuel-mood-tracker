@@ -53,61 +53,61 @@
 type="radio"
 class="btn-check"
 name="moodRadio"
-id="worst"
+id="Worst"
 autocomplete="off"
 on:click={() => {
-    emoji = emojiList.worst;
+    emoji = emojiList.Worst;
 }}
 />
-<label class="btn btn-outline-danger" for="worst">Worst</label>
+<label class="btn btn-outline-danger" for="Worst">Worst</label>
         <!-- Bad Mood -->
 <input
 type="radio"
 class="btn-check"
 name="moodRadio"
-id="bad"
+id="Bad"
 autocomplete="off"
 on:click={() => {
-    emoji = emojiList.bad;
+    emoji = emojiList.Bad;
 }}
 />
-<label class="btn btn-outline-warning" for="bad">bad</label>
+<label class="btn btn-outline-warning" for="Bad">Bad</label>
         <!-- Okay Mood -->
 <input
 type="radio"
 class="btn-check"
 name="moodRadio"
-id="okay"
+id="Okay"
 autocomplete="off"
 on:click={() => {
-    emoji = emojiList.okay;
+    emoji = emojiList.Okay;
 }}
 />
-<label class="btn btn-outline-primary" for="okay">okay</label>
+<label class="btn btn-outline-primary" for="Okay">Okay</label>
         <!-- Good Mood -->
 <input
 type="radio"
 class="btn-check"
 name="moodRadio"
-id="good"
+id="Good"
 autocomplete="off"
 on:click={() => {
-    emoji = emojiList.good;
+    emoji = emojiList.Good;
 }}
 />
-<label class="btn btn-outline-info" for="good">good</label>
+<label class="btn btn-outline-info" for="Good">Good</label>
         <!-- Best Mood -->
 <input
 type="radio"
 class="btn-check"
 name="moodRadio"
-id="best"
+id="Best"
 autocomplete="off"
 on:click={() => {
-    emoji = emojiList.best;
+    emoji = emojiList.Best;
 }}
 />
-<label class="btn btn-outline-success" for="best">best</label>
+<label class="btn btn-outline-success" for="Best">Best</label>
    </div>
 </div>
 <!-- Comments -->
