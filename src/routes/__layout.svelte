@@ -18,13 +18,13 @@
 
     function redirect() {
    	 //login redirect
-   	 if ($session && $page.path === '/') {
-   		 goto('/welcome');
+   	 if ($session && $page.path === '/login') {
+   		 goto('/');
    	 }
 
    	 //logout redirect
-   	 if (!$session && $page.path === '/welcome') {
-   		 goto('/');
+   	 if (!$session && $page.path === '/') {
+   		 goto('/login');
    	 }
     }
 </script>
