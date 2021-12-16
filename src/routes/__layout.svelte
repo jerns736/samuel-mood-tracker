@@ -10,7 +10,7 @@
    	 $session = supabase.auth.session(); // set session
    	 redirect();
 
-   	 supabase.auth.onAuthStateChange((userSession) => {
+   	 supabase.auth.onAuthStateChange((event, userSession) => {
    		 $session = userSession; // set session
    		 redirect();
    	 });
@@ -28,5 +28,7 @@
    	 }
     }
 </script>
-<Navbar/>
+
+<Navbar />
+
 <slot />
