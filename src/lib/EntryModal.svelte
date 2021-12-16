@@ -1,11 +1,11 @@
 <script>
 	import supabase from '$lib/db';
 	let emojiList = {
-		worst: '😭',
-		bad: '🙁',
-		okay: '😐',
-		good: '🙂',
-		best: '😁'
+		Worst: '😭',
+		Bad: '🙁',
+		Okay: '😐',
+		Good: '🙂',
+		Best: '😁'
 	};
 	let emoji = '😐';
 	let day = '1';
