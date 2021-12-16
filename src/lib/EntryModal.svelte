@@ -1,4 +1,22 @@
 <script>
+    import supabase from '$lib/db';
+
+// Insert entry
+async function saveEntry() {
+    const { error } = await supabase.from('moodEntries').insert(
+   	 {
+   		 user_id: supabase.auth.user().id,
+   		 day: day,
+   		 month: month,
+   		 year: year,
+   		 mood: mood,
+   		 comment: comment
+   	 }
+    );
+    if (error) alert(error.message);
+
+    location.reload(); // Refresh the page.
+}
     let emojiList = {
         worst: '😭',
         bad: '🙁',
@@ -8,7 +26,12 @@
 
     }
     let emoji = "😐";
-    
+   let day = '1';
+    let month = '1';
+   let year = '2021';
+    let mood = 'Okay';
+   let comment = 'This is a comment';
+
 </script>
 <div class="modal fade" id="newEntry" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -24,19 +47,19 @@
 <div class="row">
     <div class="col">
    	 <form class="form-floating">
-   		 <input type="number" class="form-control" id="dayInput" value="1" min="1" max="31" />
+   		 <input type="number" class="form-control" id="dayInput" bind:value={day} min="1" max="31" />
    		 <label for="dayInput">Day</label>
    	 </form>
     </div>
     <div class="col">
    	 <form class="form-floating">
-   		 <input type="number" class="form-control" id="monthInput" value="1" min="1" max="12" />
+   		 <input type="number" class="form-control" id="monthInput" bind:value={month} min="1" max="12" />
    		 <label for="monthInput">Month</label>
    	 </form>
     </div>
     <div class="col">
    	 <form class="form-floating">
-   		 <input type="number" class="form-control" id="yearInput" value="2021" min="2021" />
+   		 <input type="number" class="form-control" id="yearInput" bind:value={year} min="2021" />
    		 <label for="yearInput">Year</label>
    	 </form>
     </div>
@@ -57,6 +80,7 @@ id="Worst"
 autocomplete="off"
 on:click={() => {
     emoji = emojiList.Worst;
+    mood = 'Worst';
 }}
 />
 <label class="btn btn-outline-danger" for="Worst">Worst</label>
@@ -69,6 +93,7 @@ id="Bad"
 autocomplete="off"
 on:click={() => {
     emoji = emojiList.Bad;
+    mood = 'Bad';
 }}
 />
 <label class="btn btn-outline-warning" for="Bad">Bad</label>
@@ -81,6 +106,7 @@ id="Okay"
 autocomplete="off"
 on:click={() => {
     emoji = emojiList.Okay;
+    mood = 'Okay';
 }}
 />
 <label class="btn btn-outline-primary" for="Okay">Okay</label>
@@ -93,6 +119,7 @@ id="Good"
 autocomplete="off"
 on:click={() => {
     emoji = emojiList.Good;
+    mood = 'Good';
 }}
 />
 <label class="btn btn-outline-info" for="Good">Good</label>
@@ -105,6 +132,7 @@ id="Best"
 autocomplete="off"
 on:click={() => {
     emoji = emojiList.Best;
+    mood = 'Best';
 }}
 />
 <label class="btn btn-outline-success" for="Best">Best</label>
@@ -112,14 +140,14 @@ on:click={() => {
 </div>
 <!-- Comments -->
 <div class="form-floating">
-    <textarea class="form-control" id="comment" />
+    <textarea bind:value={comment} class="form-control" id="comment" />
     <label for="commentTextarea">Comments</label>
 </div>
    		 </div>
 
    		 <div class="modal-footer">
    			 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-   			 <button type="button" class="btn btn-primary">Add</button>
+   			 <button type="button" class="btn btn-primary" on:click={saveEntry}>Add</button>
    		 </div>
    	 </div>
     </div>
